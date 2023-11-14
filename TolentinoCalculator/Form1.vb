@@ -76,4 +76,8 @@
         total.Text = total.Text + input.Text + " - "
         input.Text = ""
     End Sub
+
+    Private Sub total_Click(sender As Object, e As EventArgs) Handles total.Click
+
+    End Sub
 End Class
