@@ -1,6 +1,6 @@
 ﻿Public Class Form1
 
-    Dim _lahat As Integer = 0
+    Dim _lahat As Double = 0
     Dim _check As Integer = 0
 
     Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
@@ -65,6 +65,8 @@
     Private Sub btnC_Click(sender As Object, e As EventArgs) Handles btnC.Click
         input.Text = ""
         total.Text = ""
+        _lahat = 0
+        _check = 0
     End Sub
 
     Private Sub btnAC_Click(sender As Object, e As EventArgs) Handles btnAC.Click
@@ -117,14 +119,14 @@
         Else
             total.Text = total.Text + input.Text
 
+            'check if _lahat is empty
+            If (_lahat = 0) Then
+                _lahat = Integer.Parse(input.Text)
+            Else
+                _lahat = _lahat + Integer.Parse(input.Text)
+            End If
         End If
 
-        'check if _lahat is empty
-        If (_lahat = 0) Then
-            _lahat = Integer.Parse(input.Text)
-        Else
-            _lahat = _lahat + Integer.Parse(input.Text)
-        End If
 
 
         If Not (input.Text = "") Then
@@ -136,14 +138,22 @@
 
     Private Sub btnSubtract_Click(sender As Object, e As EventArgs) Handles btnSubtract.Click
 
-        'check if _laht is empty
-        If (_lahat = 0) Then
-            _lahat = Integer.Parse(input.Text)
+        If (_check = 1) Then
+            Dim lahat As String = _lahat
+            total.Text = ""
+            total.Text = total.Text + lahat
+            _check = 0
         Else
-            _lahat = _lahat - Integer.Parse(input.Text)
-        End If
+            'check if _laht is empty
+            If (_lahat = 0) Then
+                _lahat = Integer.Parse(input.Text)
+            Else
+                _lahat = _lahat - Integer.Parse(input.Text)
+            End If
 
-        total.Text = total.Text + input.Text
+            total.Text = total.Text + input.Text
+
+        End If
 
         If Not (input.Text = "") Then
             total.Text = total.Text + " - "
@@ -154,14 +164,21 @@
 
     Private Sub btnMultiply_Click(sender As Object, e As EventArgs) Handles btnMultiply.Click
 
-        'check if _laht is empty
-        If (_lahat = 0) Then
-            _lahat = Integer.Parse(input.Text)
+        If (_check = 1) Then
+            Dim lahat As String = _lahat
+            total.Text = ""
+            total.Text = total.Text + lahat
+            _check = 0
         Else
-            _lahat = _lahat * Integer.Parse(input.Text)
-        End If
+            'check if _laht is empty
+            If (_lahat = 0) Then
+                _lahat = Integer.Parse(input.Text)
+            Else
+                _lahat = _lahat * Integer.Parse(input.Text)
+            End If
 
-        total.Text = total.Text + input.Text
+            total.Text = total.Text + input.Text
+        End If
 
         If Not (input.Text = "") Then
             total.Text = total.Text + " x "
@@ -171,14 +188,21 @@
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
 
-        'check if _laht is empty
-        If (_lahat = 0) Then
-            _lahat = Integer.Parse(input.Text)
+        If (_check = 1) Then
+            Dim lahat As String = _lahat
+            total.Text = ""
+            total.Text = total.Text + lahat
+            _check = 0
         Else
-            _lahat = _lahat / Integer.Parse(input.Text)
-        End If
+            'check if _laht is empty
+            If (_lahat = 0) Then
+                _lahat = Integer.Parse(input.Text)
+            Else
+                _lahat = _lahat / Integer.Parse(input.Text)
+            End If
 
-        total.Text = total.Text + input.Text
+            total.Text = total.Text + input.Text
+        End If
 
         If Not (input.Text = "") Then
             total.Text = total.Text + " ÷ "

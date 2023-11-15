@@ -340,6 +340,7 @@ Partial Class Form1
         Controls.Add(btnNegative)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
+        RightToLeftLayout = True
         Text = "Tolentino Calculator"
         ResumeLayout(False)
     End Sub
