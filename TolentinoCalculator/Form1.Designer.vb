@@ -313,6 +313,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoSize = True
         BackColor = SystemColors.ActiveBorder
         ClientSize = New Size(343, 463)
         Controls.Add(total)
