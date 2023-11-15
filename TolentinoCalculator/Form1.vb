@@ -89,17 +89,19 @@
 
         Else
 
-            If (_total.Substring(_total.Length - 2) = "+ ") Then
-                _lahat = _lahat + Integer.Parse(input.Text)
-            ElseIf (_total.Substring(_total.Length - 2) = "- ") Then
-                _lahat = _lahat - Integer.Parse(input.Text)
-            ElseIf (_total.Substring(_total.Length - 2) = "x ") Then
+            If (_total.Substring(_total.Length - 2) = "x ") Then
                 _lahat = _lahat * Integer.Parse(input.Text)
             ElseIf (_total.Substring(_total.Length - 2) = "÷ ") Then
                 _lahat = _lahat / Integer.Parse(input.Text)
+            ElseIf (_total.Substring(_total.Length - 2) = "+ ") Then
+                _lahat = _lahat + Integer.Parse(input.Text)
+            ElseIf (_total.Substring(_total.Length - 2) = "- ") Then
+                _lahat = _lahat - Integer.Parse(input.Text)
             Else
                 MsgBox("Hello world")
             End If
+
+            total.Text = total.Text + input.Text + " = "
 
             input.Text = _lahat
             _check = 1
