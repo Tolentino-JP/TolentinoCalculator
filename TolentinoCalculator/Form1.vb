@@ -83,21 +83,36 @@
 
 
         Dim _total As String = total.Text
-        Dim num As Int16 = _total.Length
+        Dim num As Integer = _total.Length
+        Dim _lastOperation As Integer
         If num = 0 Then
 
 
         Else
 
             If (_total.Substring(_total.Length - 2) = "x ") Then
-                _lahat = _lahat * Integer.Parse(input.Text)
+                _lahat = _lahat * Double.Parse(input.Text)
+                _lastOperation = 1
             ElseIf (_total.Substring(_total.Length - 2) = "÷ ") Then
-                _lahat = _lahat / Integer.Parse(input.Text)
+                _lahat = _lahat / Double.Parse(input.Text)
+                _lastOperation = 2
             ElseIf (_total.Substring(_total.Length - 2) = "+ ") Then
-                _lahat = _lahat + Integer.Parse(input.Text)
+                _lahat = _lahat + Double.Parse(input.Text)
+                _lastOperation = 3
             ElseIf (_total.Substring(_total.Length - 2) = "- ") Then
-                _lahat = _lahat - Integer.Parse(input.Text)
+                _lahat = _lahat - Double.Parse(input.Text)
+                _lastOperation = 4
             Else
+                If (_lastOperation = 1) Then
+                    _lahat = _lahat * Double.Parse(input.Text)
+                ElseIf (_lastOperation = 2) Then
+                    _lahat = _lahat / Double.Parse(input.Text)
+                ElseIf (_lastOperation = 3) Then
+                    _lahat = _lahat + Double.Parse(input.Text)
+                ElseIf (_lastOperation = 4) Then
+                    _lahat = _lahat - Double.Parse(input.Text)
+                End If
+
                 MsgBox("Hello world")
             End If
 
@@ -113,6 +128,8 @@
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
 
+
+
         If (_check = 1) Then
             Dim lahat As String = _lahat
             total.Text = ""
@@ -123,22 +140,26 @@
 
             'check if _lahat is empty
             If (_lahat = 0) Then
-                _lahat = Integer.Parse(input.Text)
+                _lahat = Double.Parse(input.Text)
             Else
-                _lahat = _lahat + Integer.Parse(input.Text)
+                _lahat = _lahat + Double.Parse(input.Text)
             End If
         End If
 
-
-
         If Not (input.Text = "") Then
+
+            '_lahat = _lahat + Double.Parse(input.Text)
+
             total.Text = total.Text + " + "
             input.Text = ""
         End If
 
+
     End Sub
 
     Private Sub btnSubtract_Click(sender As Object, e As EventArgs) Handles btnSubtract.Click
+
+
 
         If (_check = 1) Then
             Dim lahat As String = _lahat
@@ -148,9 +169,9 @@
         Else
             'check if _laht is empty
             If (_lahat = 0) Then
-                _lahat = Integer.Parse(input.Text)
+                _lahat = Double.Parse(input.Text)
             Else
-                _lahat = _lahat - Integer.Parse(input.Text)
+                _lahat = _lahat - Double.Parse(input.Text)
             End If
 
             total.Text = total.Text + input.Text
@@ -158,6 +179,9 @@
         End If
 
         If Not (input.Text = "") Then
+
+            '_lahat = _lahat - Double.Parse(input.Text)
+
             total.Text = total.Text + " - "
             input.Text = ""
         End If
@@ -166,6 +190,8 @@
 
     Private Sub btnMultiply_Click(sender As Object, e As EventArgs) Handles btnMultiply.Click
 
+
+
         If (_check = 1) Then
             Dim lahat As String = _lahat
             total.Text = ""
@@ -174,21 +200,27 @@
         Else
             'check if _laht is empty
             If (_lahat = 0) Then
-                _lahat = Integer.Parse(input.Text)
+                _lahat = Double.Parse(input.Text)
             Else
-                _lahat = _lahat * Integer.Parse(input.Text)
+                _lahat = _lahat * Double.Parse(input.Text)
             End If
 
             total.Text = total.Text + input.Text
         End If
 
         If Not (input.Text = "") Then
+
+            '_lahat = _lahat * Double.Parse(input.Text)
+
             total.Text = total.Text + " x "
             input.Text = ""
         End If
+
     End Sub
 
     Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
+
+
 
         If (_check = 1) Then
             Dim lahat As String = _lahat
@@ -207,9 +239,13 @@
         End If
 
         If Not (input.Text = "") Then
+
+            '_lahat = _lahat / Double.Parse(input.Text)
+
             total.Text = total.Text + " ÷ "
             input.Text = ""
         End If
+
 
     End Sub
 End Class
