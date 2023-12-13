@@ -341,6 +341,7 @@ Partial Class Form1
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
         RightToLeftLayout = True
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Tolentino Calculator"
         ResumeLayout(False)
     End Sub
