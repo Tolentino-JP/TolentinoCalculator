@@ -242,4 +242,44 @@
 
 
     End Sub
+
+    Private Sub btnDecimal_Click(sender As Object, e As EventArgs) Handles btnDecimal.Click
+
+        Dim _total As String = input.Text
+        Dim num As Integer = _total.Length
+        If (_total = "") Then
+
+            input.Text = "0."
+
+        Else
+
+            If (_total.Substring(_total.Length - 1) = ".") Then
+
+            Else
+                input.Text = input.Text + "."
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub btnNegative_Click(sender As Object, e As EventArgs) Handles btnNegative.Click
+
+        Dim _total As String = input.Text
+
+        If (_total = "") Then
+            input.Text = input.Text.Insert(0, "-")
+        Else
+            If (_total.Substring(0, 1) = "-") Then
+                input.Text = input.Text.Remove(0, 1)
+
+            Else
+                input.Text = input.Text.Insert(0, "-")
+
+            End If
+        End If
+
+
+
+    End Sub
 End Class
